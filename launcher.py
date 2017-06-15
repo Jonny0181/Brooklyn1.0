@@ -63,7 +63,7 @@ def menu():
             with open(h, "r+") as f:
                 settings = json.load(f)
                 token = input("Please enter token here: ")
-                settings["Token"] = token
+                settings["TOKEN"] = token
                 f.seek(0)
                 f.write(json.dumps(settings, indent=4, sort_keys=True))
                 f.truncate()
@@ -73,7 +73,7 @@ def menu():
             with open(h, "r+") as f:
                 settings = json.load(f)
                 id = input("Please enter Owner ID here: ")
-                settings["Owner ID"] = id
+                settings["OWNER_ID"] = id
                 f.seek(0)
                 f.write(json.dumps(settings, indent=4, sort_keys=True))
                 f.truncate()
@@ -83,7 +83,7 @@ def menu():
             with open(h, "r+") as f:
                 settings = json.load(f)
                 prefix = input("Please enter Prefix here: ")
-                settings["Prefix"] = prefix
+                settings["PREFIX"] = prefix
                 f.seek(0)
                 f.write(json.dumps(settings, indent=4, sort_keys=True))
                 f.truncate()
