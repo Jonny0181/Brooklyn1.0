@@ -24,7 +24,7 @@ class Dev:
 **Sever:** {}
 
 If you ever have problems with the bot please stop by the support server so we can guide you through your issue. :heart:"""
-        await self.bot.say(msg.format(author, server, link))
+        await self.bot.say(msg.format(author, link, server))
 
     @commands.command(pass_context=True)
     async def report(self, ctx, *, command_name: str):
