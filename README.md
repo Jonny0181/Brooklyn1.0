@@ -1,28 +1,21 @@
-# Brooklyn Recode - Creating a new base and code for sharding.
+# Brooklyn - A open source Discord bot made for the public ny Young:tm:#
 #### *Music, moderation, utitily and more!*
 
+**Wanting to run your own instance of Brooklyn? Well now you can!**
+[<img src="https://img.shields.io/badge/Support-me!-orange.svg">](https://www.patreon.com/_brooklyn)  [<img src="https://img.shields.io/badge/discord-py-blue.svg">](https://github.com/Rapptz/discord.py) [<img src="https://discordapp.com/api/guilds/133049272517001216/widget.png?style=shield">](https://discord.gg/fmuvSX9)
 
-**Brooklyn** is a popular discord bot that is on over more than 1k severs! I am needed to do this recode so I can work on sharding. and much more! This will allow me to add more features and more little mini games!
+Just follow these simple steps and get your instance up and running!
 
-
-
-
-:mega::interrobang: **PARTNER OPPORTUNITY** :interrobang::mega:
-
-**Looking for a chance for your server to get partnered with Brooklyn?**
-
-Well here is your chance! There is only a few guidelines!
-
-**Guidelines:**
-- Have at least 100-150 users in your server. 
-- Be able to contribute to Brooklyn in any sort of way, there will be a list of ways to do so farther down in this message
-- Be able to help fix Brooklyn by finding any bugs or anything.
-
-If you can follow at least 2 of these guidelines and you can prove it, you maybe be able to have the chance in partnering with Brooklyn!
-
-**Ways to contribute:**
-- Help with getting donations. 
-- Help expand Brooklyn, such as server wise and reputation.
-- If you are a coder and know python, you can make a pull request with features you would like to be implemented into Brooklyn. (Code will be reviewed before push to core.)
-- If any of you guys can think of other ways you can contribute please dm me your ideas or mention me in #main.
+**How to run your own Instance of Brooklyn1.0:tm:**
+`1)` Install python3.5.
+    Link to install python: <https://www.python.org/downloads/>
+`1)` Create a Discord bot application and make a it a bot user.
+    Link to create application: <https://discordapp.com/developers/docs/intro>
+`2)` Copy your token then go to line 266 in main.py and paste your token in the the `""`'s
+`3)` Copy your discord id and replace it with `"OWNER_ID"` in these 3 places.
+    **1)** `utils/check.py` Line 6.
+    **2)** `modules/terminal.py` Line 68.
+    **3)** `modules/dev.py` Line 39.
+`4)` Open a terminal window and type in the following command and hit enter. `sudo pip -r req.txt`
+`5)` When all these steps are said and done, all you need to do is type `python3.5 main.py` to run the bot!
 
