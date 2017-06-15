@@ -1,9 +1,9 @@
-# Brooklyn - A open source Discord bot made for the public ny Young:tm:#
+# Brooklyn - A open source Discord bot made for the public ny Young:tm:
 #### *Music, moderation, utitily and more!*
-
-**Wanting to run your own instance of Brooklyn? Well now you can!**
 [<img src="https://img.shields.io/badge/Support-me!-orange.svg">](https://www.patreon.com/_brooklyn)  [<img src="https://img.shields.io/badge/discord-py-blue.svg">](https://github.com/Rapptz/discord.py) [<img src="https://discordapp.com/api/guilds/133049272517001216/widget.png?style=shield">](https://discord.gg/fmuvSX9)
 
+
+**Wanting to run your own instance of Brooklyn? Well now you can!**
 Just follow these simple steps and get your instance up and running!
 
 **How to run your own Instance of Brooklyn1.0:tm:**
