@@ -14,27 +14,21 @@ from utils.dataIO import fileIO
 from random import choice as randchoice
 
 prefix = "b!"
-description = ''
-shard_id = 0
-shard_count = 3
-bot = commands.Bot(command_prefix=(prefix), description=description, shard_id=shard_id, shard_count=shard_count)
+description = 'Brooklyn - An open source discord bot for the public! Coded by Young™ with love.'
+bot = commands.Bot(command_prefix=(prefix), description=description)
 start_time = time.time()
 starttime2 = time.ctime(int(time.time()))
 bot.pm_help = None
 wrap = "```py\n{}\n```"
 aiosession = aiohttp.ClientSession(loop=bot.loop)
 
-async def _restart_bot():
-    await bot.logout()
-    subprocess.call([sys.executable, "shard_1.py"])
-
 modules = [
-    'modules.music2',
+    'modules.audio',
     'modules.fun',
     'modules.joinmsg',
     'modules.gfx',
     'modules.autorole',
-    'modules.repl2',
+    'modules.repl',
     'modules.bump',
     'modules.terminal',
     'modules.casino',
@@ -56,7 +50,7 @@ async def on_message(message):
     server = message.server
     channel = message.channel
     settings = {"Channels" : [], "Users" : [], "Roles" : []}
-    if message.content.startswith("b!"):
+    if message.content.startswith(prefix):
         if server.id not in db:
             db[server.id] = settings
             fileIO("data/ignore/ignore_list.json", "save", db)
@@ -168,22 +162,6 @@ async def setgame(self, ctx, *, game=None):
         await self.bot.change_presence(game=None, status=current_status)
     await self.bot.say(":ok_hand:")
 
-@bot.command(hidden=True, pass_context=True)
-@checks.is_owner()
-async def shutdown(ctx):
-    """Shuts down the bot"""
-    await bot.say("Bye, I'm not coming back.")
-    print("{} has shut down the bot!".format(ctx.message.author))
-    await _shutdown_bot()
-
-@bot.command(hidden=True, pass_context=True)
-@checks.is_owner()
-async def restart(ctx):
-    """Restarts the bot"""
-    await bot.say("Be right back, hopefully.")
-    print("{} has restarted the bot!".format(ctx.message.author))
-    await _restart_bot()
-
 @bot.command()
 async def uptime():
     """Displays how long the bot has been online for"""
@@ -211,7 +189,7 @@ async def setavatar(ctx, *, url : str=None):
         await bot.say(":x: Unable to change avatar!", embed=discord.Embed(description="{}".format(e), colour=discord.Colour.red()))
     await bot.say(":heart_eyes:")
 
-@bot.command(hidden=True)
+@bot.command()
 @checks.is_owner()
 async def load(*, module: str):
     """Loads a part of the bot."""
@@ -226,7 +204,7 @@ async def load(*, module: str):
     except Exception as e:
         await bot.say(wrap.format(type(e).__name__ + ': ' + str(e)))
 
-@bot.command(hidden=True)
+@bot.command()
 @checks.is_owner()
 async def unload(*, module: str):
     """Unloads a part of the bot."""
@@ -241,7 +219,7 @@ async def unload(*, module: str):
     except Exception as e:
         await bot.say(wrap.format(type(e).__name__ + ': ' + str(e)))
         
-@bot.command(hidden=True)
+@bot.command()
 @checks.is_owner()
 async def reload(*, module: str):
     """Reloads a part of the bot."""
@@ -288,6 +266,6 @@ try:
     loop.run_until_complete(bot.login(""))
     loop.run_until_complete(bot.connect())
 except Exception:
-    loop.run_until_complete(os.system("shard_1.py"))
+    loop.run_until_complete(os.system("main.py"))
 finally:
     loop.close()
