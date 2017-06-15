@@ -1,0 +1,44 @@
+{
+    "236311632198762496" : {
+        "Channel" : "284121605343543296",
+        "embed" : false,
+        "toggleban" : false,
+        "togglechannel" : false,
+        "toggledelete" : false,
+        "toggleedit" : false,
+        "togglejoin" : false,
+        "toggleleave" : false,
+        "toggleroles" : false,
+        "toggleserver" : false,
+        "toggleuser" : false,
+        "togglevoice" : false
+    },
+    "303331201605828610" : {
+        "Channel" : "304034603004461066",
+        "embed" : false,
+        "toggleban" : true,
+        "togglechannel" : false,
+        "toggledelete" : true,
+        "toggleedit" : true,
+        "togglejoin" : false,
+        "toggleleave" : false,
+        "toggleroles" : false,
+        "toggleserver" : false,
+        "toggleuser" : false,
+        "togglevoice" : false
+    },
+    "304358835265470465" : {
+        "Channel" : "304376196899012610",
+        "embed" : true,
+        "toggleban" : true,
+        "togglechannel" : false,
+        "toggledelete" : false,
+        "toggleedit" : false,
+        "togglejoin" : false,
+        "toggleleave" : false,
+        "toggleroles" : false,
+        "toggleserver" : true,
+        "toggleuser" : false,
+        "togglevoice" : false
+    }
+}
