@@ -8,10 +8,11 @@ from os import makedirs, getcwd
 from getpass import getuser
 from platform import uname
 from re import sub
-with open('config.json') as f:
-	config = json.load(f)
+import json
 
-ownerid = config['OWNER_ID']
+with open('config.json') as f:
+    config = json.load(f)
+    ownerid = config['OWNER_ID']
 
 class Terminal:
     """repl like Terminal in discord"""
