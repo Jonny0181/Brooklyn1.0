@@ -35,7 +35,6 @@ If you ever have problems with the bot please stop by the support server so we c
             e = discord.Embed(colour=discord.Colour.red())
             e.set_author(name="New report message!", icon_url=ctx.message.author.avatar_url)
             e.add_field(name="Reporter:", value="{}\n{}".format(ctx.message.author, ctx.message.author.id))
-            e.add_field(name="Time:", value=datetime.datetime.now().strftime("%A, %B %-d %Y at %-I:%M%p").replace("PM", "pm").replace("AM", "am"), inline=False)
             e.add_field(name="Message:", value=command_name, inline=False)
             e.set_thumbnail(url=ctx.message.author.avatar_url)
             await self.bot.send_message(discord.User(id=self.config["OWNER_ID"]), embed=e)
