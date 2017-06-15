@@ -124,7 +124,7 @@ async def on_command_error(error, ctx):
         await bot.send_message(channel, ":x: This command is on cooldown. Try again in {:.2f}s".format(error.retry_after))
     else:
         if ctx.command:
-            await bot.send_message(ctx.message.channel, "{} :bangbang: An error occured while processing the `{}` command.\n\nPlease use `b!report <command name>`!!".format(ctx.message.author.mention, ctx.command.name))
+            await bot.send_message(ctx.message.channel, "{} :bangbang: An error occured while processing the `{}` command.\n\nPlease use `{}report <command name>`!!".format(ctx.message.author.mention, ctx.command.name, ctx.prefix))
         print('Ignoring exception in command {}'.format(ctx.command), file=sys.stderr)
         traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 
