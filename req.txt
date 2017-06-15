@@ -5,3 +5,4 @@ psutil
 tabulate
 unicodedata
 DateTime
+python-dateutil
