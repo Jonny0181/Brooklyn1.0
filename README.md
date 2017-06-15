@@ -7,7 +7,7 @@
 Just follow these simple steps and get your instance up and running!
 
 **How to run your own Instance of Brooklyn1.0:tm:**
-`1)` Install python3.5.
+`1)` Install python3.5
 Link to install python: <https://www.python.org/downloads/>
 
 `2)` Create a Discord bot application and make a it a bot user.
