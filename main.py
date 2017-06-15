@@ -268,7 +268,7 @@ async def setname(ctx, *, name: str):
 bot.add_cog(Default(bot))
 loop = asyncio.get_event_loop()
 try:
-    loop.run_until_complete(bot.login(token
+    loop.run_until_complete(bot.login(token))
     loop.run_until_complete(bot.connect())
 except Exception:
     loop.run_until_complete(os.system("main.py"))
