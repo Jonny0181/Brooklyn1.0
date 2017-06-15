@@ -1,4 +1,4 @@
-# Brooklyn - A open source Discord bot made for the public ny Young:tm:
+# Brooklyn - A open source Discord bot made for the public, made with love and pation for his community by Young:tm:
 #### *Music, moderation, utitily and more!*
 [<img src="https://img.shields.io/badge/Support-me!-orange.svg">](https://www.patreon.com/_brooklyn)  [<img src="https://img.shields.io/badge/discord-py-blue.svg">](https://github.com/Rapptz/discord.py) [<img src="https://discordapp.com/api/guilds/133049272517001216/widget.png?style=shield">](https://discord.gg/fmuvSX9)
 
