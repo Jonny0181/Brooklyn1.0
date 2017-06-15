@@ -13,7 +13,12 @@ from discord.ext import commands
 from utils.dataIO import fileIO
 from random import choice as randchoice
 
-prefix = "b!"
+with open('config.json') as f:
+	config = json.load(f)
+
+prefix = config['PREFIX']
+token = config['TOKEN']
+logch = config['LOG_CHANNEL']
 description = 'Brooklyn - An open source discord bot for the public! Coded by Young™ with love.'
 bot = commands.Bot(command_prefix=(prefix), description=description)
 start_time = time.time()
@@ -263,7 +268,7 @@ async def setname(ctx, *, name: str):
 bot.add_cog(Default(bot))
 loop = asyncio.get_event_loop()
 try:
-    loop.run_until_complete(bot.login(""))
+    loop.run_until_complete(bot.login(token
     loop.run_until_complete(bot.connect())
 except Exception:
     loop.run_until_complete(os.system("main.py"))
