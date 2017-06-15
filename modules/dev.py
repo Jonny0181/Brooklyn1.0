@@ -9,8 +9,9 @@ from utils.chat_formatting import pagify, box
 wrap = "```py\n{}```"
 
 with open('config.json') as f:
-	config = json.load(f)
-ownerid = config['OWNER_ID']
+    config = json.load(f)
+    ownerid = config['OWNER_ID']
+
 class Dev:
     def __init__(self, bot):
         self.bot = bot
