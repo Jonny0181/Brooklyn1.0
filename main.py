@@ -13,7 +13,12 @@ from discord.ext import commands
 from utils.dataIO import fileIO
 from random import choice as randchoice
 
-prefix = "b!"
+with open('config.json') as f:
+	config = json.load(f)
+
+prefix = config['PREFIX']
+token = config['TOKEN']
+logch = config['LOG_CHANNEL']
 description = 'Brooklyn - An open source discord bot for the public! Coded by Young™ with love.'
 bot = commands.Bot(command_prefix=(prefix), description=description)
 start_time = time.time()
@@ -124,7 +129,7 @@ async def on_command_error(error, ctx):
         await bot.send_message(channel, ":x: This command is on cooldown. Try again in {:.2f}s".format(error.retry_after))
     else:
         if ctx.command:
-            await bot.send_message(ctx.message.channel, "{} :bangbang: An error occured while processing the `{}` command.\n\nPlease use `{}report <command name>`!!".format(ctx.message.author.mention, ctx.command.name, ctx.prefix))
+            await bot.send_message(ctx.message.channel, "{} :bangbang: An error occured while processing the `{}` command.\n\nPlease use `b!report <command name>`!!".format(ctx.message.author.mention, ctx.command.name))
         print('Ignoring exception in command {}'.format(ctx.command), file=sys.stderr)
         traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 
