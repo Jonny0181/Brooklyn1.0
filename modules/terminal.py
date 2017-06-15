@@ -65,7 +65,7 @@ You can also type b!help category for more info on a category.""")
                 check_folder()
                 check_file()
 
-            if message.content.startswith(self.prefix) and message.author.id == "146040787891781632":
+            if message.content.startswith(self.prefix) and message.author.id == "OWNER_ID":
                 command = message.content.split(self.prefix)[1]
 
                 if not command:
