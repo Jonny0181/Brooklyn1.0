@@ -9,6 +9,9 @@ from getpass import getuser
 from platform import uname
 from re import sub
 
+with open('config.json') as f:
+	config = json.load(f)
+owner = config['OWNER_ID']
 class Terminal:
     """repl like Terminal in discord"""
 
@@ -65,7 +68,7 @@ You can also type b!help category for more info on a category.""")
                 check_folder()
                 check_file()
 
-            if message.content.startswith(self.prefix) and message.author.id == "OWNER_ID":
+            if message.content.startswith(self.prefix) and message.author.id == owner:
                 command = message.content.split(self.prefix)[1]
 
                 if not command:
