@@ -4,7 +4,7 @@ import datetime
 from discord.ext import commands
 from subprocess import check_output, CalledProcessError
 from utils import checks
-from utis.dataIO import dataIO, fileIO
+from utils.dataIO import dataIO, fileIO
 from utils.chat_formatting import pagify, box
 
 wrap = "```py\n{}```"
