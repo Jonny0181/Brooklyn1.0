@@ -7,6 +7,7 @@
 Just follow these simple steps and get your instance up and running!
 
 **How to run your own Instance of Brooklyn1.0:tm:**
+
 `1)` Install python3.5
 Link to install python: <https://www.python.org/downloads/>
 
@@ -16,8 +17,11 @@ Link to create application: <https://discordapp.com/developers/docs/intro>
 `3)` Copy your token then go to line 266 in main.py and paste your token in the `""`'s
 
 `4)` Copy your discord id and replace it with `"OWNER_ID"` in these 3 places.
+
 **1)** `utils/check.py` Line 6.
+
 **2)** `modules/terminal.py` Line 68.
+
 **3)** `modules/dev.py` Line 39.
 
 `5)` Open a terminal window and type in the following command and hit enter. `sudo pip -r req.txt`
