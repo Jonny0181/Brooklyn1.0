@@ -3,6 +3,5 @@ discord.py[voice]
 geocoder
 psutil
 tabulate
-unicodedata
 DateTime
 python-dateutil
