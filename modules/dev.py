@@ -1,21 +1,18 @@
 import discord
 import asyncio
-import json
 import datetime
 from discord.ext import commands
 from subprocess import check_output, CalledProcessError
 from utils import checks
+from utis.dataIO import dataIO, fileIO
 from utils.chat_formatting import pagify, box
 
 wrap = "```py\n{}```"
 
-with open('config.json') as f:
-    config = json.load(f)
-    ownerid = config['OWNER_ID']
-
 class Dev:
     def __init__(self, bot):
         self.bot = bot
+        self.config = dataIO.load_json('config.json')
 
     @commands.command(pass_context=True)
     async def github(self, ctx):
@@ -41,7 +38,7 @@ If you ever have problems with the bot please stop by the support server so we c
             e.add_field(name="Time:", value=datetime.datetime.now().strftime("%A, %B %-d %Y at %-I:%M%p").replace("PM", "pm").replace("AM", "am"), inline=False)
             e.add_field(name="Message:", value=command_name, inline=False)
             e.set_thumbnail(url=ctx.message.author.avatar_url)
-            await self.bot.send_message(discord.User(id=ownerid), embed=e)
+            await self.bot.send_message(discord.User(id=self.config["OWNER_ID"]), embed=e)
         except Exception as e:
             await self.bot.say(embed=discord.Embed(description=wrap.format(type(e).__name__ + ': ' + str(e)), colour=discord.Colour.red()))
         else:
