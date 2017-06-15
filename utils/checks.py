@@ -2,8 +2,11 @@ from discord.ext import commands
 import discord.utils
 import json
 
+with open('config.json') as f:
+	config = json.load(f)
+owner = config['OWNER_ID']
 def is_owner_check(message):
-    return message.author.id == "OWNER_ID"
+    return message.author.id == owner
 
 def is_owner():
     return commands.check(lambda ctx: is_owner_check(ctx.message))
