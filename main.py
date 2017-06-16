@@ -31,7 +31,6 @@ modules = [
     'modules.audio',
     'modules.fun',
     'modules.joinmsg',
-    'modules.gfx',
     'modules.autorole',
     'modules.repl',
     'modules.bump',
