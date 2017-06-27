@@ -3,10 +3,11 @@ import discord.utils
 import json
 
 with open('config.json') as f:
-	config = json.load(f)
-owner = config['OWNER_ID']
+    config = json.load(f)
+    ownerid = config['OWNER_ID']
+
 def is_owner_check(message):
-    return message.author.id == owner
+    return message.author.id == ownerid
 
 def is_owner():
     return commands.check(lambda ctx: is_owner_check(ctx.message))

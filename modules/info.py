@@ -126,11 +126,6 @@ class Info:
         embed.set_thumbnail(url="https://maxcdn.icons8.com/iOS7/PNG/75/Logos/github_copyrighted_filled-75.png")
         await self.bot.say(embed=embed)
 
-    @commands.command()
-    async def shard(self):
-        """Shows shard number."""
-        await self.bot.say("Shard {} out of {} shards.".format(str(self.bot.shard_id + 1), self.bot.shard_count))
-
     @commands.command(pass_context=True)
     async def inrole(self, ctx, *, rolename):
         """Check members in the role specified."""
@@ -164,7 +159,6 @@ class Info:
         data = discord.Embed(colour=user.colour)
         data.set_image(url=user.avatar_url)
         data.set_author(name="Avatar for {}!".format(user.name), icon_url=user.avatar_url)
-        data.set_footer(text=datetime.datetime.now().strftime("%A, %B %-d %Y at %-I:%M%p").replace("PM", "pm").replace("AM", "am"))
         await self.bot.say(embed=data)
 
     @commands.command(pass_context=True, aliases=["ri"])
@@ -257,8 +251,7 @@ class Info:
         server = ctx.message.server
         shard_count = self.bot.shard_count
         musage = psutil.Process().memory_full_info().uss / 1024**2
-        members1 = str(sum(len(s.members) for s in self.bot.servers))
-        members2 = str(int(str(members1)) * int(shard_count))
+        members= len([e.name for e in self.bot.get_all_members()]) 
         cpu_p = psutil.cpu_percent(interval=None, percpu=True)
         cpu_usage = sum(cpu_p)/len(cpu_p)
         if server.me.colour:
@@ -269,14 +262,11 @@ class Info:
         e.set_thumbnail(url=self.bot.user.avatar_url)
         e.add_field(name="Developer:", value="<@146040787891781632>")
         e.add_field(name="Support:", value="<@217179156008534016>, <@125367412370440192>")
-        e.add_field(name="Bot Version:", value="v4")
+        e.add_field(name="Bot Version:", value="v1.0")
         e.add_field(name="Discord Version:", value=discord.__version__)
-        e.add_field(name="Build Date:", value="September 16, 2016 00:09")
         e.add_field(name="Voice Connections:", value=len(self.bot.voice_clients))
-        e.add_field(name="Servers:", value=str(int(len(self.bot.servers)) * int(shard_count)))
-        e.add_field(name="Members:", value=members2)
-        e.add_field(name="Shard Number:", value="Shard {} out of {}.".format(str(self.bot.shard_id + 1), str(self.bot.shard_count)))
-        e.add_field(name="Shard Stats:", value="{} channels.\n{} members.\n{} servers.".format(len([e.name for e in self.bot.get_all_channels()]), members1, len(self.bot.servers)))
+        e.add_field(name="Servers:", value=len(self.bot.servers))
+        e.add_field(name="Members:", value=members)
         e.add_field(name="Memory Usage:", value="{:.2f} MiB".format(musage))
         e.add_field(name='CPU usage:', value='{0:.1f}%'.format(cpu_usage))
         e.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
@@ -455,8 +445,6 @@ https://discord.gg/fmuvSX9""")
         data = discord.Embed(description="Showing stats for {}.".format(self.bot.user.name), colour=discord.Colour.red())
         data.add_field(name="Owner", value="<@146040787891781632>")
         data.add_field(name="Ping", value="{}ms".format(round((t2-t1)*1000)))
-        data.add_field(name="Shard ID", value=str(self.bot.shard_id + 1))
-        data.add_field(name="Shard Count", value=self.bot.shard_count)
         data.add_field(name="Servers", value=len(self.bot.servers))
         data.add_field(name="Api version", value=discord.__version__)
         data.add_field(name="Users", value="{} Online\n{} Idle\n{} Dnd\n{} Offline\n\n**Total:** {}".format(online, idle, dnd, offline, len([e.name for e in self.bot.get_all_members()])))
