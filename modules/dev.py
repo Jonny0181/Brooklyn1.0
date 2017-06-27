@@ -29,7 +29,7 @@ class Dev:
 
 If you ever have problems with the bot please stop by the support server so we can guide you through your issue. :heart:
 
-**DISCLAIMER:** Brooklyn is packed with reds audio modules, and some of the utils. I do claim any credit for making the code. All respect goes to the developers and contributers to red. :ok_hand:"""
+**DISCLAIMER:** Brooklyn is packed with reds audio modules, and some of the utils. I don't claim any credit for making the code. All respect goes to the developers and contributers to red. :ok_hand:"""
         await self.bot.say(msg.format(author, link, server))
 
     @commands.command(pass_context=True)
