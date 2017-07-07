@@ -7,6 +7,7 @@ import ast
 import aiohttp
 import logging
 import datetime
+import json
 import urllib.request
 from datetime import datetime
 import time
@@ -21,6 +22,10 @@ DB_VERSION = 2
 wrap = "```py\n{}```"
 user_id = "3691279"
 patreon_link = "_brooklyn"
+
+with open('config.json') as f:
+    config = json.load(f)
+owner = config['OWNER_ID']
 
 class Info:
     def __init__(self, bot):
@@ -343,13 +348,13 @@ class Info:
         await self.bot.whisper("""**Hello there I see you have requested my invite link!**
 
 **Here is my invite link:**
-<https://discordapp.com/oauth2/authorize?client_id=226132382846156800&scope=bot&permissions=401697975>
+<https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=401697975>
 
 **If you would like to help contribute to Brooklyn you may here:**
 <https://www.patreon.com/_brooklyn>
 
 **If you come across any problems or would like to receive updates on Brooklyn you may join this server!**
-https://discord.gg/fmuvSX9""")
+https://discord.gg/fmuvSX9""".format(self.bot.user.id))
 
     @commands.command(pass_context=True, no_pm=True)
     async def channelinfo(self, ctx, *, channel: discord.Channel=None):
@@ -414,7 +419,10 @@ https://discord.gg/fmuvSX9""")
         msg = await self.bot.say("Pinging to server...")
         time = (msg.timestamp - ctx.message.timestamp).total_seconds() * 1000
         await self.bot.edit_message(msg, 'Pong: {}ms :ping_pong:'.format(round(time)))
-        
+
+
+
+
     @commands.command(pass_context=True)
     async def stats(self, ctx):
         """Shows stats."""
@@ -443,12 +451,12 @@ https://discord.gg/fmuvSX9""")
         await self.bot.type()
         t2 = time.perf_counter()
         data = discord.Embed(description="Showing stats for {}.".format(self.bot.user.name), colour=discord.Colour.red())
-        data.add_field(name="Owner", value="<@146040787891781632>")
+        data.add_field(name="Owner", value="<@{}>".format(owner))
         data.add_field(name="Ping", value="{}ms".format(round((t2-t1)*1000)))
         data.add_field(name="Servers", value=len(self.bot.servers))
         data.add_field(name="Api version", value=discord.__version__)
         data.add_field(name="Users", value="{} Online\n{} Idle\n{} Dnd\n{} Offline\n\n**Total:** {}".format(online, idle, dnd, offline, len([e.name for e in self.bot.get_all_members()])))
-        data.add_field(name="Channels", value="{} Voice Channels\n{} Text Channels\n\n**Total:** {}".format(len([e.name for e in self.bot.get_all_channels() if e.type == discord.ChannelType.voice]), len([e.name for e in self.bot.get_all_channels() if e.type == discord.ChannelType.text]), len([e.name for e in self.bot.get_all_channels()])))
+        data.add_field(name="Channels", value="{} Voice Channels\n{} Text Channels\n\n\n\n**Total:** {}".format(len([e.name for e in self.bot.get_all_channels() if e.type == discord.ChannelType.voice]), len([e.name for e in self.bot.get_all_channels() if e.type == discord.ChannelType.text]), len([e.name for e in self.bot.get_all_channels()])))
         data.add_field(name='CPU usage', value='{0:.1f}%'.format(cpu_usage))
         data.add_field(name='Memory usage', value='{0:.1f}%'.format(mem_v.percent))
         data.add_field(name="Commands", value="{0} active modules, with {1} commands...".format(len(self.bot.cogs), len(self.bot.commands)))
