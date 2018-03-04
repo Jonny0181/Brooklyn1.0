@@ -1,6 +1,8 @@
 # Brooklyn - A open source Discord bot made for the public, made with love and passion for his community by Young
 #### *Music, moderation, utitily and more!*
-[<img src="https://img.shields.io/badge/Support-me!-orange.svg">](https://www.patreon.com/_brooklyn)  [<img src="https://img.shields.io/badge/discord-py-blue.svg">](https://github.com/Rapptz/discord.py) [<img src="https://discordapp.com/api/guilds/236311632198762496/widget.png?style=shield">](https://discord.gg/fmuvSX9)
+[<img src="https://img.shields.io/badge/Support-me!-orange.svg">](https://www.patreon.com/_brooklyn)  [<img src="https://img.shields.io/badge/discord-py-blue.svg">](https://github.com/Rapptz/discord.py) [<a href="https://discordbots.org/bot/226132382846156800" >
+  <img src="https://discordbots.org/api/widget/226132382846156800.svg" alt="Discord Music Bot" />
+</a>)
 
 
 **Wanting to run your own instance of Brooklyn? Well now you can!**
